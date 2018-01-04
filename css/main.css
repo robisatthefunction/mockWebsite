@@ -1,0 +1,321 @@
+
+header {
+	margin-bottom: 30px;
+}
+
+.sticky-header {
+	width: 100%;
+	z-index: 100;
+	position: fixed;
+	height: 63px;
+	background-color: white;
+}
+
+h1 {
+	margin: 17px 20px 0 20px;
+	float: left;
+	font-family: 'Oleo Script', cursive;
+}
+
+.web, .loading {
+	float: left;
+	margin: 23px 20px 0 20px;
+	font-family: 'Courier New';
+	font-size: 20px;
+}
+
+.icons {
+	position: absolute;
+	top: 14px;
+	left: 64%;
+}
+
+header li {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0 20px;
+	border-radius: 10px;
+	border: 1px solid;
+	padding: 7px 10px 7px 10px;
+}
+
+header li a {
+	text-decoration: none;
+}
+
+.git {
+	border: 1px solid black;
+}
+
+.git-symbol {
+	color: black;
+}
+
+.link {
+	border: 1px solid #0e76a8;
+}
+
+.link-symbol {
+	color: #0e76a8;
+}
+
+.medium {
+	border: 1px solid #3cb371;
+}
+
+.medium-symbol {
+	color: #3cb371;
+}
+
+.nav {
+	height: 295px;
+	padding-right: 0;
+	overflow: hidden;
+	background-color: black;
+	clear: right;
+}
+
+.nav img {
+	-moz-transition: all 0.7s;
+	-webkit-transition: all 0.7s;
+	transition: all 0.7s;
+	-webkit-filter: opacity(.6);
+	filter: opacity(.6);
+}
+
+#content {
+	height: 100%;
+	padding-top: 63px;
+}
+
+.skills img {
+	filter: opacity(.8);
+}
+
+
+.nav:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+	-webkit-filter: opacity(.2);
+  filter: opacity(.2);
+}
+
+.skills:hover img {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+	-webkit-filter: opacity(.3);
+	filter: opacity(.3);
+}
+
+.text-nav {
+	color: white;
+	position: absolute;
+  top: 32%;
+  left: 42%;
+	font-size: 70px;
+	font-weight: bold;
+	font-family: 'Oleo Script', cursive;
+}
+
+main {
+	clear: both;
+}
+
+/* Work Section */
+
+.work {
+	padding-top: 1px;
+}
+
+.section-header {
+	height: 100px;
+}
+
+h3 {
+	font-family: 'Oleo Script', cursive;
+	text-align: center;
+	padding-top: 50px;
+	margin: 0;
+	font-size: 50px;
+}
+
+.row1 {
+	margin-top: 70px;
+	height: 310px;
+}
+
+.row2 {
+	height: 310px;
+}
+
+.project img {
+	-moz-transition: all 0.7s;
+	-webkit-transition: all 0.7s;
+	transition: all 0.7s;
+	display: block;
+	margin: 0 auto;
+	border-radius: 15px;
+}
+
+.project:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.proj-title {
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.proj-desc {
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+	font-family: sans-serif;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .3s, visibility .3s;
+}
+
+.project:hover .proj-desc {
+	visibility: visible;
+  opacity: 1;
+	text-decoration: none;
+}
+
+.rec {
+	color: black;
+	font-family: 'Dosis', sans-serif;
+}
+
+.rec-desc {
+
+}
+
+.health {
+	font-family: 'Arial Rounded MT Bold', sans-serif;
+	color: #F88E79;
+}
+
+.health-desc {
+
+}
+
+.eleven {
+	font-family: 'Oleo Script', cursive;
+	color: black;
+}
+
+.eleven-desc {
+
+}
+
+.sanic {
+	text-decoration: none;
+	color: blue;
+}
+
+.sanic-desc {
+
+}
+
+.rescue {
+	text-decoration: none;
+	color: black;
+}
+
+.rescueMap {
+	border: 1px black solid;
+}
+
+.game, .start-game {
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+
+/* Skills Section */
+
+.skills-section {
+	height: 700px;
+	background-color: #f0f0e0
+}
+
+.skills-wrapper {
+	margin-top: 70px;
+	padding-top: 100px;
+}
+
+.skills-wrapper .col-md-4 ul {
+	text-align: center;
+	list-style-type: none;
+	margin: 0 auto;
+}
+
+.skills-wrapper .col-md-4 ul li {
+	padding: 15px 0;
+	border: 2px black solid;
+	margin: 50px 0;
+	border-radius: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* About Section */
+
+.about-section {
+	height: 700px;
+}
+
+.about-wrapper {
+	padding-top: 190px;
+	font-family: 'Dosis', sans-serif;
+}
+
+.stats {
+	margin-left: 10px;
+}
+
+h4 {
+	text-decoration: underline;
+}
+
+.prof-pic {
+	text-align: center;
+}
+
+.prof-pic img {
+	margin-top: 0px;
+	height: 250px;
+	width: 300px;
+	border-radius: 40px;
+	margin-right: 40px;
+}
+
+.about-text {
+	line-height: 27px;
+	font-size: 15px;
+}
+
+/* Code section */
+
+.code-section {
+	height: 458px;
+	background-color: #efefef;
+}
+
+.code-wrapper {
+	margin-left: 100px;
+	padding-top: 100px;
+}
+
+footer {
+
+}
