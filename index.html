@@ -47,18 +47,13 @@
 	window['optimizely'] = window['optimizely'] || [];
   var $ = window.optimizely.get('jquery');
 
-	window["optimizely"].push({
-  "type": "bucketVisitor",
-  "experimentId": "10023950566",
-  "variationId": "10316598429"
-});
-
 	$('#body').css('opacity', 0);
 	$(window).load(function() {
   	$('#body').css('opacity', 1);
 		$('.loading').text('');
 	});
 
+/*
 	var optlyState = window.optimizely.get('state');
 
 	var activeExperiments = optlyState.getActiveExperimentIds();
@@ -82,7 +77,14 @@
     "variations_exposed": variationsValue
   }
 });
+*/
 
+$('.work .text-nav').click(function() {
+	window["optimizely"].push({
+  "type": "event",
+  "eventName": "clicked_work"
+	});
+})
 
 
 
