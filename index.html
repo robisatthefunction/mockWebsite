@@ -80,9 +80,13 @@
 */
 
 $('.work .text-nav').click(function() {
+	console.log('helllllloooo');
 	window["optimizely"].push({
   "type": "event",
-  "eventName": "purchase"
+  "eventName": "trackRevenue",
+			"tags": {
+				"revenue": 1000
+			}
 	});
 })
 
