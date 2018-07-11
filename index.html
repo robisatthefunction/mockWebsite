@@ -12,7 +12,14 @@
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/main.css"/>
 	</head>
-	<body>
+	<script>
+function update()
+{
+	var d = document.body;
+	document.getElementById("spanScrollPos").innerHTML = Math.floor(d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + "%";
+}
+</script>
+	<body onScroll="update()">
 		<header class="sticky-header">
 			<h1>Company Name</h1>
 		</header>
@@ -20,7 +27,10 @@
 		<div id="content">
 		<section>
 			<div class="work nav col-md-6">
-				<a class="link-to-other" href="https://robisatthefunction.github.io/mock2/index.html?foobar=true">Link to other site</a>
+				<div style="height: 500px"></div>
+				 Scroll Position: <span id="spanScrollPos">0%</span>
+				<div style="height: 500px"></div>
+				  <a class="link-to-other" href="https://robisatthefunction.github.io/mock2/index.html?foobar=true">Link to other site</a>
 					<h2 class="text-nav"><span style="font-size:20px">Congress driven to distraction</span></h2>
 			</div>
 			<div class="contact nav col-md-6">
@@ -53,6 +63,8 @@
   	$('#body').css('opacity', 1);
 		$('.loading').text('');
 	});
+
+
 
 /*
 	var optlyState = window.optimizely.get('state');
