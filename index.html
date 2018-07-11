@@ -12,14 +12,7 @@
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/main.css"/>
 	</head>
-	<script>
-function update()
-{
-	var d = document.body;
-	document.getElementById("spanScrollPos").innerHTML = Math.floor(d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + "%";
-}
-</script>
-	<body onScroll="update()">
+	<body>
 		<header class="sticky-header">
 			<h1>Company Name</h1>
 		</header>
@@ -27,9 +20,6 @@ function update()
 		<div id="content">
 		<section>
 			<div class="work nav col-md-6">
-				<div style="height: 500px"></div>
-				 Scroll Position: <span id="spanScrollPos">0%</span>
-				<div style="height: 500px"></div>
 				  <a class="link-to-other" href="https://robisatthefunction.github.io/mock2/index.html?foobar=true">Link to other site</a>
 					<h2 class="text-nav"><span style="font-size:20px">Congress driven to distraction</span></h2>
 			</div>
@@ -63,6 +53,37 @@ function update()
   	$('#body').css('opacity', 1);
 		$('.loading').text('');
 	});
+
+	$(window).bind('scroll', function() {
+      window.scrollPercent = (window.scrollY / ($(document).height() - $(window).height())) * 100;
+
+      // Conditional code we'll use to fire events based on scrollPercentage.
+
+      if (window.scrollPercent >= 25 && scrollTwentyFive) {
+          window['optimizely'] = window['optimizely'] || [];
+          console.log(25);
+          scrollTwentyFive = false;
+      }
+
+      if (window.scrollPercent >= 50 && scrollFifty) {
+          window['optimizely'] = window['optimizely'] || [];
+					console.log(50)
+          scrollFifty = false;
+      }
+
+      if (window.scrollPercent >= 75 && scrollSeventyFive) {
+          window['optimizely'] = window['optimizely'] || [];
+					console.log(75)
+          scrollSeventyFive = false;
+      }
+
+      if (window.scrollPercent >= 100 && scrollOneHundred) {
+          window['optimizely'] = window['optimizely'] || [];
+					console.log(100)
+          scrollOneHundred = false;
+      }
+
+  });
 
 
 
