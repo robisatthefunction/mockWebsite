@@ -54,37 +54,16 @@
 		$('.loading').text('');
 	});
 
-	$(window).bind('scroll', function() {
-      window.scrollPercent = (window.scrollY / ($(document).height() - $(window).height())) * 100;
+	import optimizely from '@optimizely/optimizely-sdk';
+	var optimizelyClientInstance;
+	var url = 'https://cdn.optimizely.com/public/9258012290/s/11108600797_production.json';
+	window.fetch(url, { mode: 'cors' })
+	  .then((response) => response.json())
+	  .then((datafile) => {
+	    optimizelyClientInstance = optimizely.createInstance({ datafile: datafile })
+	  });
 
-      // Conditional code we'll use to fire events based on scrollPercentage.
-
-      if (window.scrollPercent >= 25 && scrollTwentyFive) {
-          window['optimizely'] = window['optimizely'] || [];
-          console.log(25);
-          scrollTwentyFive = false;
-      }
-
-      if (window.scrollPercent >= 50 && scrollFifty) {
-          window['optimizely'] = window['optimizely'] || [];
-					console.log(50)
-          scrollFifty = false;
-      }
-
-      if (window.scrollPercent >= 75 && scrollSeventyFive) {
-          window['optimizely'] = window['optimizely'] || [];
-					console.log(75)
-          scrollSeventyFive = false;
-      }
-
-      if (window.scrollPercent >= 100 && scrollOneHundred) {
-          window['optimizely'] = window['optimizely'] || [];
-					console.log(100)
-          scrollOneHundred = false;
-      }
-
-  });
-
+		window.optimizelyClientInstance = optimizelyClientInstance
 
 
 /*
