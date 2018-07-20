@@ -54,17 +54,6 @@
 		$('.loading').text('');
 	});
 
-	import optimizely from '@optimizely/optimizely-sdk';
-	var optimizelyClientInstance;
-	var url = 'https://cdn.optimizely.com/public/9258012290/s/11108600797_production.json';
-	window.fetch(url, { mode: 'cors' })
-	  .then((response) => response.json())
-	  .then((datafile) => {
-	    optimizelyClientInstance = optimizely.createInstance({ datafile: datafile })
-	  });
-
-		window.optimizelyClientInstance = optimizelyClientInstance
-
 
 /*
 	var optlyState = window.optimizely.get('state');
@@ -106,10 +95,10 @@ $('.work .text-nav').click(function() {
   "type": "event",
   "eventName": "cartCheckout",
 			"tags": {
-				"revenue": 1000
+				"revenue": 106700
 			}
 	});
-})
+});
 
 
 
