@@ -13,7 +13,20 @@
 				page: "restoran_sayfasi"
 			});
 		</script>
-    <script src="https://cdn.optimizely.com/js/9874509362.js"></script>
+    <script src="https://cdn.optimizely.com/js/9874509362.js" async></script>
+		<script src="https://unpkg.com/@optimizely/optimizely-sdk/dist/optimizely.browser.umd.min.js"></script>
+<script>
+const url = 'https://cdn.optimizely.com/datafiles/Pex4GNxQnzDErs3TJZ7cc3.json';
+window
+  .fetch(url, { mode: 'cors' })
+  .then(response => response.json())
+  .then(datafile => {
+    const optimizelyClientInstance = optimizelySdk.createInstance({
+      datafile,
+    });
+		optimizelyClientInstance.track('ordered_app', 'user1');
+  });
+</script>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/main.css"/>
