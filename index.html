@@ -11,16 +11,7 @@
 		<script src="https://unpkg.com/@optimizely/optimizely-sdk/dist/optimizely.browser.umd.min.js"></script>
 <script>
 
-const urlParams = new URLSearchParams(window.location.search);
-const sdkKey = urlParams.get('sdkKey')
 
-const optimizelyClient = optimizelySdk.createInstance({
-	sdkKey: sdkKey
-})
-
-optimizelyClient.onReady().then(() => {
-  window.optimizelyClient = optimizelyClient
-});
 
 </script>
 
@@ -54,16 +45,16 @@ window
 		<section>
 			<div class="work nav col-md-6">
 				  <a class="link-to-other" href="https://robisatthefunction.github.io/mock2/index.html?foobar=true">Link to other site</a>
-					<h2 class="text-nav"><span style="font-size:20px">Congress driven to distraction</span></h2>
+					<h2 class="text-nav"><span style="font-size:20px">Click Here</span></h2>
 			</div>
 			<div class="contact nav col-md-6">
-					<h2 class="text-nav"><span style="font-size:20px">Stormy Daniels offers to return $130,000 to end deal to keep quiet</span></h2>
+					<h2 class="text-nav"><span style="font-size:20px">Click Here</span></h2>
 			</div>
 			<div class="about nav col-md-6">
-					<h2 class="text-nav"><span style="font-size:20px">Congress nears deal to crack down on sexual harassment</span></h2>
+					<h2 class="text-nav"><span style="font-size:20px">Click Here</span></h2>
 			</div>
 			<div class="careers nav col-md-6">
-					<h2 class="text-nav"><span style="font-size:20px">Democrats ask for copy of Trump Organization’s check to taxpayers</span></h2>
+					<h2 class="text-nav"><span style="font-size:20px">Click Here</span></h2>
 			</div>
 		</section>
 		</div>
@@ -78,37 +69,24 @@ window
 
 		<!-- Scripts -->
 	<script>
-	window['optimizely'] = window['optimizely'] || [];
-  var $ = window.optimizely.get('jquery');
 
-	$('#body').css('opacity', 0);
-	$(window).load(function() {
-  	$('#body').css('opacity', 1);
-		$('.loading').text('');
-	});
+	const urlParams = new URLSearchParams(window.location.search);
+	const userId = urlParams.get('userId')
+	const sdkKey = urlParams.get('sdkKey')
 
+	const optimizelyClient = optimizelySdk.createInstance({
+		sdkKey: sdkKey
+	})
 
+	optimizelyClient.onReady().then(() => {
+	  window.optimizelyClient = optimizelyClient
 
-$('.link-to-other').click(function() {
-	window["optimizely"].push({
-  "type": "user",
-  "attributes": {
-    "membership": "selfEmployed",
-  }
-});
-});
-
-$('.work .text-nav').click(function() {
-	window["optimizely"].push({
-  "type": "event",
-  "eventName": "cartCheckout",
-			"tags": {
-				"revenue": 106700
-			}
+		document.querySelectorAll('.text-nav').forEach(item => {
+  		item.addEventListener('click', event => {
+			optimizelyClient.track('click', userId)
+		})
 	});
 });
-
-
 
 	</script>
 
