@@ -12,7 +12,7 @@
 <script>
 
 const urlParams = new URLSearchParams(window.location.search);
-const sdkKey = urlParams('sdkKey')
+const sdkKey = urlParams.get('sdkKey')
 
 const optimizelyClient = optimizelySdk.createInstance({
 	sdkKey: sdkKey
