@@ -24,11 +24,9 @@
 		  window.optimizelyClient = optimizelyClient
 
 			var variation = optimizelyClient.activate('color_test', userId);
-			if (variation == 'variation_1') {
-				// do nothing
-			} else if (variation == 'variation_2'){
+			if (variation == 'variation_2'){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css')
-			}
+			} 
 
 			document.querySelectorAll('.text-nav').forEach(item => {
 	  		item.addEventListener('click', event => {
