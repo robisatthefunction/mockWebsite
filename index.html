@@ -19,7 +19,7 @@ const optimizelyClient = optimizelySdk.createInstance({
 })
 
 optimizelyClient.onReady().then(() => {
-  optimizelyClient.track('click','user123')
+  window.optimizelyClient
 });
 
 </script>
