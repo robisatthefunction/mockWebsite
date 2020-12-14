@@ -9,29 +9,31 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://cdn.optimizely.com/js/9874509362.js"></script>
 		<script src="https://unpkg.com/@optimizely/optimizely-sdk/dist/optimizely.browser.umd.min.js"></script>
-<script>
+
+	<script>
+
+		const urlParams = new URLSearchParams(window.location.search);
+		const userId = urlParams.get('userId')
+		const sdkKey = urlParams.get('sdkKey')
+
+		const optimizelyClient = optimizelySdk.createInstance({
+			sdkKey: sdkKey
+		})
+
+		optimizelyClient.onReady().then(() => {
+		  window.optimizelyClient = optimizelyClient
+
+			document.querySelectorAll('.text-nav').forEach(item => {
+	  		item.addEventListener('click', event => {
+				optimizelyClient.track('click', userId)
+			})
+		});
+	});
+
+		</script>
 
 
 
-</script>
-
-
-<!--
-<script>
-const url = 'https://cdn.optimizely.com/datafiles/Pex4GNxQnzDErs3TJZ7cc3.json';
-
-
-window
-  .fetch(url, { mode: 'cors' })
-  .then(response => response.json())
-  .then(datafile => {
-    const optimizelyClientInstance = optimizelySdk.createInstance({
-      datafile,
-    });
-		optimizelyClientInstance.track('ordered_app', 'user1');
-  });
-</script>
--->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/main.css"/>
@@ -68,27 +70,7 @@ window
 
 
 		<!-- Scripts -->
-	<script>
 
-	const urlParams = new URLSearchParams(window.location.search);
-	const userId = urlParams.get('userId')
-	const sdkKey = urlParams.get('sdkKey')
-
-	const optimizelyClient = optimizelySdk.createInstance({
-		sdkKey: sdkKey
-	})
-
-	optimizelyClient.onReady().then(() => {
-	  window.optimizelyClient = optimizelyClient
-
-		document.querySelectorAll('.text-nav').forEach(item => {
-  		item.addEventListener('click', event => {
-			optimizelyClient.track('click', userId)
-		})
-	});
-});
-
-	</script>
 
 	</body>
 </html>
