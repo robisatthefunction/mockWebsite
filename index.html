@@ -23,6 +23,13 @@
 		optimizelyClient.onReady().then(() => {
 		  window.optimizelyClient = optimizelyClient
 
+			var variation = optimizelyClient.activate('color_test', userId);
+			if (variation == 'variation_1') {
+				// do nothing
+			} else if (variation == 'variation_2'){
+				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css')
+			}
+
 			document.querySelectorAll('.text-nav').forEach(item => {
 	  		item.addEventListener('click', event => {
 				optimizelyClient.track('click', userId)
@@ -36,7 +43,7 @@
 
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/main.css"/>
+		<link rel="stylesheet" href="css/main2.css"/>
 	</head>
 	<body>
 		<header class="sticky-header">
