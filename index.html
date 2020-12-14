@@ -19,7 +19,7 @@ const optimizelyClient = optimizelySdk.createInstance({
 })
 
 optimizelyClient.onReady().then(() => {
-  window.optimizelyClient
+  window.optimizelyClient = optimizelyClient
 });
 
 </script>
