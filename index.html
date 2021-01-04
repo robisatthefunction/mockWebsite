@@ -15,6 +15,7 @@
 		const urlParams = new URLSearchParams(window.location.search);
 		const userId = urlParams.get('userId')
 		const sdkKey = urlParams.get('sdkKey')
+		const bucketingId = urlParams.get('bucketingId')
 
 		const optimizelyClient = optimizelySdk.createInstance({
 			sdkKey: sdkKey
@@ -23,7 +24,7 @@
 		optimizelyClient.onReady().then(() => {
 		  window.optimizelyClient = optimizelyClient
 
-			var variation = optimizelyClient.activate('color_test', userId);
+			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId});
 			if (variation == 'variation_2'){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css')
 			}
