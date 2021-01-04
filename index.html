@@ -17,6 +17,9 @@
 		const sdkKey = urlParams.get('sdkKey')
 		const bucketingId = urlParams.get('bucketingId')
 
+		optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
+		optimizelySdk.setLogLevel(optimizelySdk.enums.LOG_LEVEL.DEBUG);
+
 		const optimizelyClient = optimizelySdk.createInstance({
 			sdkKey: sdkKey
 		})
