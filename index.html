@@ -16,7 +16,7 @@
 		const userId = urlParams.get('userId')
 		const sdkKey = urlParams.get('sdkKey')
 		const bucketingId = urlParams.get('bucketingId')
-		const exampleAttribute = urlParams.get('attribute')
+		const tier = urlParams.get('tier')
 
 		optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
 		optimizelySdk.setLogLevel(optimizelySdk.enums.LOG_LEVEL.DEBUG);
@@ -28,7 +28,7 @@
 		optimizelyClient.onReady().then(() => {
 		  window.optimizelyClient = optimizelyClient
 
-			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'example_1':exampleAttribute});
+			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
 			if (variation == 'variation_2'){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css')
 			}
