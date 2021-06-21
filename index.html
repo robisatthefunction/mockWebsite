@@ -26,8 +26,8 @@
 			sdkKey: sdkKey
 		})
 
-	 	optimizelyClient.onReady().then(() => {
-		  window.optimizelyClient = optimizelyClient
+	 	//optimizelyClient.onReady().then(() => {
+		//  window.optimizelyClient = optimizelyClient
 
 			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
 			if (variation == 'variation_2'){
@@ -39,7 +39,7 @@
 				optimizelyClient.track('click', userId)
 			})
 		});
-	});
+	//});
 
 		</script>
 
