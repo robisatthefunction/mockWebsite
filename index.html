@@ -29,12 +29,13 @@
 			sdkKey: sdkKey
 		})
 
-	 	//optimizelyClient.onReady().then(() => {
-		//  window.optimizelyClient = optimizelyClient
+	 	optimizelyClient.onReady().then(result => {
+		  window.optimizelyClient = optimizelyClient
+			console.log(result.reason);
 
 			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
 			if (variation == 'variation_2'){
-				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css')
+				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
 			}
 
 			document.querySelectorAll('.text-nav').forEach(item => {
