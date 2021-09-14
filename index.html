@@ -14,7 +14,7 @@
 	<script>
 
 		const urlParams = new URLSearchParams(window.location.search);
-		const userId = 45345345;
+		const userId = undefined;
 		//const userId = urlParams.get('userId')
 		const sdkKey = urlParams.get('sdkKey')
 		const bucketingId = urlParams.get('bucketingId')
@@ -31,7 +31,7 @@
 
 	 	optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient
-			console.log(result.reason);
+			console.log('reason', result.reason);
 
 			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
 			if (variation == 'variation_2'){
