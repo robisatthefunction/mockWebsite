@@ -14,7 +14,7 @@
 	<script>
 
 		const urlParams = new URLSearchParams(window.location.search);
-		const userId = undefined;
+		const userId = 'rob704';
 		//const userId = urlParams.get('userId')
 		const sdkKey = urlParams.get('sdkKey')
 		const bucketingId = urlParams.get('bucketingId')
@@ -29,7 +29,7 @@
 			sdkKey: sdkKey
 		})
 
-	 	optimizelyClient.onReady().then(result => {
+	 	optimizelyClient.onReady({timeout: 1}).then(result => {
 		  window.optimizelyClient = optimizelyClient
 			console.log('reason', result.reason);
 
