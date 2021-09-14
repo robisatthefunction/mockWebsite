@@ -29,7 +29,7 @@
 			sdkKey: sdkKey
 		})
 
-	 	optimizelyClient.onReady({timeout: 1}).then(result => {
+	 	optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient
 			console.log('reason', result.reason);
 
