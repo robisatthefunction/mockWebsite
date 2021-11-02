@@ -19,6 +19,15 @@
 		const sdkKey = urlParams.get('sdkKey')
 		const bucketingId = urlParams.get('bucketingId')
 		const tier = urlParams.get('tier')
+		setTimeout(function(){
+			window.userTypeValue = 'Lender'
+		},3000)
+		setTimeout(function(){
+			window.dealerId = '100025'
+		},5000)
+		setTimeout(function(){
+			window.lenderId = '100025'
+		},5000)
 
 		optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
 		optimizelySdk.setLogLevel(optimizelySdk.enums.LOG_LEVEL.DEBUG);
