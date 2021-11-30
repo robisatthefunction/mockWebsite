@@ -42,7 +42,7 @@
 		  window.optimizelyClient = optimizelyClient
 			console.log('reason', result.reason);
 
-			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
+/*			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
 			if (variation == 'variation_2'){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
 			}
@@ -51,7 +51,7 @@
 	  		item.addEventListener('click', event => {
 				optimizelyClient.track('click', userId)
 			})
-		});
+		});*/
 	});
 
 		</script>
