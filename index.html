@@ -7,27 +7,16 @@
 		<link href="https://fonts.googleapis.com/css?family=Convergence|Oleo+Script" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<script>window.mapOptlyUserId_To_DealerId = '100025';</script>
     <script src="https://cdn.optimizely.com/js/9874509362.js"></script>
 		<script src="https://unpkg.com/@optimizely/optimizely-sdk/dist/optimizely.browser.umd.min.js"></script>
 
 	<script>
 
 		const urlParams = new URLSearchParams(window.location.search);
-		const userId = 'rob704';
-		//const userId = urlParams.get('userId')
+		const userId = urlParams.get('userId')
 		const sdkKey = urlParams.get('sdkKey')
-		const bucketingId = urlParams.get('bucketingId')
-		const tier = urlParams.get('tier')
-		setTimeout(function(){
-			window.userTypeValue = 'Dealer'
-		},500)
-		setTimeout(function(){
-			window.dealerId = '100025'
-		},800)
-		setTimeout(function(){
-			window.lenderId = '100025'
-		},800)
+		const attributes = {tier: urlParams.get('tier')};
+
 
 		optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
 		optimizelySdk.setLogLevel(optimizelySdk.enums.LOG_LEVEL.DEBUG);
@@ -43,16 +32,19 @@
 		  window.optimizelyClient = optimizelyClient
 			console.log('reason', result.reason);
 
-/*			var variation = optimizelyClient.activate('color_test', userId, {'$opt_bucketing_id':bucketingId, 'tier':tier});
-			if (variation == 'variation_2'){
+			var user = optimizelyClient.createUserContext(userId, attributes);
+			var decision = user.decide('newWebsite');
+
+			if (decision['enabled']){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
+				document.querySelector('body > header > h1').innerText = decision['brandMessaging'];
 			}
 
 			document.querySelectorAll('.text-nav').forEach(item => {
 	  		item.addEventListener('click', event => {
 				optimizelyClient.track('click', userId)
 			})
-		});*/
+		});
 	});
 
 		</script>
@@ -71,10 +63,10 @@
 		<div id="content">
 		<section>
 			<div class="work nav col-md-6">
-					<h2 class="text-nav"><span style="font-size:20px"></span></h2>
+					<h2 class="text-nav"><span style="font-size:20px">CTA</span></h2>
 			</div>
 			<div class="contact nav col-md-6">
-					<h2 class="text-nav"><span style="font-size:20px"><a href="coxautoinc.com">CTA</a></span></h2>
+					<h2 class="text-nav"><span style="font-size:20px">CTA</span></h2>
 			</div>
 			<div class="about nav col-md-6">
 					<h2 class="text-nav"><span style="font-size:20px">CTA</span></h2>
