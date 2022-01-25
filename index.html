@@ -33,7 +33,7 @@
 			console.log('reason', result.reason);
 
 			var user = optimizelyClient.createUserContext(userId, attributes);
-			var decision = user.decide('newWebsite');
+			var decision = user.decide('newwebsite');
 
 			if (decision['enabled']){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
