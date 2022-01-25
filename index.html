@@ -37,12 +37,12 @@
 
 			if (decision['enabled']){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
-				document.querySelector('body > header > h1').innerText = decision['brandmessaging'];
+				document.querySelector('#content > section > div.work.nav.col-md-6 > h2 > span').innerText = decision['brandmessaging'];
 			}
 
 			document.querySelectorAll('.text-nav').forEach(item => {
 	  		item.addEventListener('click', event => {
-				optimizelyClient.track('click', userId)
+				optimizelyClient.track('click', userId);
 			})
 		});
 	});
