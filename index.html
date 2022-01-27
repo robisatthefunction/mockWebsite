@@ -35,7 +35,7 @@
 
 			var config = optimizelyClient.getOptimizelyConfig();
 
-			var decisionEvent = (config['featuresMap']['example']['variablesMap']['disable_decision_event'].value) ? optimizelyOptions.DISABLE_DECISION_EVENT : null;
+			var decisionEvent = (config['featuresMap']['example']['variablesMap']['disable_decision_event'].value == 'true') ? optimizelyOptions.DISABLE_DECISION_EVENT : null;
 
 			var user = optimizelyClient.createUserContext(userId, attributes);
 			var decision = user.decide('example', [decisionEvent]);
