@@ -16,6 +16,7 @@
 		const userId = urlParams.get('userId')
 		const sdkKey = urlParams.get('sdkKey')
 		const attributes = {tier: urlParams.get('tier')};
+		const optimizelyOptions = optimizelySdk.OptimizelyDecideOption;
 
 
 		optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
@@ -33,11 +34,11 @@
 			console.log('reason', result.reason);
 
 			var config = optimizelyClient.getOptimizelyConfig();
-			window.config = config;
+
+			var decisionEvent = (config['featuresMap']['example']['variablesMap']['disable_decision_event'].value) ? optimizelyOptions.DISABLE_DECISION_EVENT : null;
 
 			var user = optimizelyClient.createUserContext(userId, attributes);
-			var decision = user.decide('example');
-			window.decision = decision;
+			var decision = user.decide('example', [decisionEvent]);
 
 			if (decision['enabled']){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
@@ -49,6 +50,8 @@
 				optimizelyClient.track('click', userId);
 			})
 		});
+		window.decision = decision;
+		window.config = config;
 	});
 
 		</script>
