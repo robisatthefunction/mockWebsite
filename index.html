@@ -32,6 +32,9 @@
 		  window.optimizelyClient = optimizelyClient
 			console.log('reason', result.reason);
 
+			var config = optimizelyClient.getOptimizelyConfig();
+			window.config = config;
+
 			var user = optimizelyClient.createUserContext(userId, attributes);
 			var decision = user.decide('example');
 			window.decision = decision;
