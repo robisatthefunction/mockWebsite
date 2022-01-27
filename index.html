@@ -33,11 +33,11 @@
 			console.log('reason', result.reason);
 
 			var user = optimizelyClient.createUserContext(userId, attributes);
-			var decision = user.decide('newwebsite');
+			var decision = user.decide('example');
 
 			if (decision['enabled']){
 				document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
-				document.querySelector('#content > section > div.work.nav.col-md-6 > h2 > span').innerText = decision['variables'].brandmessaging;
+				document.querySelector('#content > section > div.work.nav.col-md-6 > h2 > span').innerText = decision['variables'].brand_messaging;
 			}
 
 			document.querySelectorAll('.text-nav').forEach(item => {
