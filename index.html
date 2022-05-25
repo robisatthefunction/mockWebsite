@@ -18,6 +18,7 @@
 		const attributes = {tier: urlParams.get('tier')};
 	//	const optimizelyOptions = optimizelySdk.OptimizelyDecideOption;
 
+window.optimizelySdk = optimizelySdk;
 
 		optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
 		optimizelySdk.setLogLevel(optimizelySdk.enums.LOG_LEVEL.DEBUG);
