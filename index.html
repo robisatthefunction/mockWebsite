@@ -36,7 +36,7 @@ window.optimizelySdk = optimizelySdk;
 
 	const onDecision = (decisionType, userId, attributes, decisionInfo) => {
   // Add a DECISION Notification Listener for type FEATURE
-	console.log('hello');
+	console.log('hello', decisionType);
   if(decisionType == 'feature') {
     // Access information about feature, for example, key and enabled status
     console.log(decisionInfo['feature_key']);
