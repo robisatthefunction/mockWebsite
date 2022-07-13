@@ -33,6 +33,20 @@ window.optimizelySdk = optimizelySdk;
 
 	 	optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient
+
+			const onDecision = (decisionType, userId, attributes, decisionInfo) => {
+  // Add a DECISION Notification Listener for type FEATURE
+	window.decisionType
+  if(decisionType == 'feature') {
+    // Access information about feature, for example, key and enabled status
+    console.log(decisionInfo['feature_key']);
+    console.log(decisionInfo['feature_enabled']);
+    console.log(decisionInfo['source']);
+    // Send data to analytics provider here
+  }
+}
+
+		const notificationId = optimizelyClient.notificationCenter.addNotificationListener(optimizelySdk.enums.NOTIFICATION_TYPES.DECISION, onDecision);
 			//console.log('reason', result.reason);
 
 		//	var config = optimizelyClient.getOptimizelyConfig();
