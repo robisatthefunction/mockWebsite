@@ -27,10 +27,15 @@ window.optimizelySdk = optimizelySdk;
 // PiRA8qU33qXi5aCoT7yH6
 // https://robisatthefunction.github.io/mockWebsite/?sdkKey=JtG4rUnwTxcpXCVNFND9W
 
+const optimizelyClient = optimizelySdk.createInstance({
+	datafile: {version: '4'}
+})
+
+/*
 		const optimizelyClient = optimizelySdk.createInstance({
 			sdkKey: sdkKey
 		})
-
+*/
 	 	optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient
 
