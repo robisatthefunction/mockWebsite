@@ -34,10 +34,7 @@ const optimizelyClient = optimizelySdk.createInstance({
 		  window.optimizelyClient = optimizelyClient
 
 	const onDecision = (decisionType, userId, attributes, decisionInfo) => {
-  // Add a DECISION Notification Listener for type FEATURE
-    // Access information about feature, for example, key and enabled status
-    console.log('decisionType', decisionType);
-    // Send data to analytics provider here
+  	window.decisionInfo = decisionInfo;
 }
 
 		const notificationId = optimizelyClient.notificationCenter.addNotificationListener(optimizelySdk.enums.NOTIFICATION_TYPES.DECISION, onDecision);
