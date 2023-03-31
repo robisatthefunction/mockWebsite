@@ -44,10 +44,8 @@
   var removeMask = function() {
     // its adequate to remove mask class once on the first sync change
     if(syncChangesApplied) return;
-	if(override != 'true') {
     cssRuleManager.sheet.disabled = true;
     syncChangesApplied = true;
-	}
   }
 
   /**
