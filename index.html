@@ -9,9 +9,12 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://unpkg.com/@optimizely/optimizely-sdk/dist/optimizely.browser.umd.min.js"></script>
 	<script>
-	  var maskTimeout          = 2000,
+	const urlParams = new URLSearchParams(window.location.search);
+
+	  var maskTimeout = urlParams.get('timeout'),
       hideElementSelectors = ['body > header > h1', '.text-nav'],
-      syncChangesApplied   = false;      
+      syncChangesApplied   = false,
+	  override = urlParams.get('override');    
 
   /**
   * Manages CSSStyleSheet actions
@@ -41,8 +44,10 @@
   var removeMask = function() {
     // its adequate to remove mask class once on the first sync change
     if(syncChangesApplied) return;
+	if(override != true) {
     cssRuleManager.sheet.disabled = true;
     syncChangesApplied = true;
+	}
   }
 
   /**
