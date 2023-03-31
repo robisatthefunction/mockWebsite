@@ -11,7 +11,7 @@
 	<script>
 	const urlParams = new URLSearchParams(window.location.search);
 
-	  var maskTimeout = urlParams.get('timeout'),
+	  var maskTimeout = parseInt(urlParams.get('timeout')),
       hideElementSelectors = ['body > header > h1', '.text-nav'],
       syncChangesApplied   = false,
 	  override = urlParams.get('override');    
