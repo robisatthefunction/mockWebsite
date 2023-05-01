@@ -92,7 +92,7 @@ const optimizelyClient = optimizelySdk.createInstance({
 	 	optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient
 
-	const onDecision = (decisionType, userId, attributes, decisionInfo) => {
+	const onDecision = ({decisionType, userId, attributes, decisionInfo}) => {
 	console.log('decided1', decisionInfo);
   	window.decisionInfo = decisionInfo;
 }
