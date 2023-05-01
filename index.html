@@ -93,8 +93,11 @@ const optimizelyClient = optimizelySdk.createInstance({
 		  window.optimizelyClient = optimizelyClient
 
 	const onDecision = ({decisionType, userId, attributes, decisionInfo}) => {
-	console.log('decided1', decisionInfo);
-  	window.decisionInfo = decisionInfo;
+	if(decisionInfo['decisionEventDispatched']){
+		var experimentKey = decisionInfo['ruleKey'];
+		var variationKey = decisionInfo['variationKey'];
+		console.log(experimentKey, variationKey);
+	}
 }
 
 		const notificationId = optimizelyClient.notificationCenter.addNotificationListener(optimizelySdk.enums.NOTIFICATION_TYPES.DECISION, onDecision);
