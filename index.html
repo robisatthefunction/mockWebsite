@@ -29,20 +29,34 @@ const optimizelyClient = optimizelySdk.createInstance({
 	sdkKey: sdkKey
 })
 
-	 	optimizelyClient.onReady().then(result => {
+optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient
 
-const onDecision = ({decisionType, userId, attributes, decisionInfo}) => {
-	if(decisionInfo['decisionEventDispatched']){
-		window.dataLayer = window.dataLayer || [];
-		dataLayer.push({
-  			'event': 'optimizely-decision',
-  			'optimizely-flagKey': decisionInfo.flagKey,
-  			'optimizely-ruleKey': decisionInfo.ruleKey,
-  			'optimizely-variationKey': decisionInfo.variationKey,
-		});
-	}
-}
+const onDecision = (decisionEvent) => {
+        window.decisionInfo = decisionEvent.decisionInfo;
+        // This will execute if you have called activate() and the visitor gets into an A/B Test or Feature Test
+		/*
+        if (type === 'ab-test' || type === 'feature test') {
+            const { experimentKey, variationKey } = decisionInfo;
+            // HAVE to make sure that variation key is not null.  A/B tests in optimizely still create a decision
+            // even if you aren't in a qualifying audience.  Feature tests don't do this though???
+            if (experimentKey && variationKey) {
+                if (!activeExperiments.includes(experimentKey + ':' + variationKey)) {
+                    activeExperiments.push(experimentKey + ':' + variationKey);
+                }
+            }
+        // This will execute if you have called isFeatureEnabled and the visitor gets into a Feature Test
+        } else if (type === 'feature' && decisionInfo.source == 'feature test') {
+            var experimentKey = decisionInfo.sourceInfo.experimentKey;
+            var variationKey = decisionInfo.sourceInfo.variationKey;
+            if(experimentKey && variationKey){
+                if (!activeExperiments.includes(experimentKey + ':' + variationKey)) {
+                    activeExperiments.push(experimentKey + ':' + variationKey);
+                }
+            }
+        }
+		*/
+    };
 
 const notificationId = optimizelyClient.notificationCenter.addNotificationListener(optimizelySdk.enums.NOTIFICATION_TYPES.DECISION, onDecision);
 			//console.log('reason', result.reason);
