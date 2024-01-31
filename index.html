@@ -33,53 +33,12 @@ const optimizelyClient = optimizelySdk.createInstance({
 optimizelyClient.onReady().then(result => {
 		  window.optimizelyClient = optimizelyClient;
 
-const onDecision = (decisionEvent) => {
-        window.decisionEvent = decisionEvent;
-        // This will execute if you have called activate() and the visitor gets into an A/B Test or Feature Test
-		/*
-        if (type === 'ab-test' || type === 'feature test') {
-            const { experimentKey, variationKey } = decisionInfo;
-            // HAVE to make sure that variation key is not null.  A/B tests in optimizely still create a decision
-            // even if you aren't in a qualifying audience.  Feature tests don't do this though???
-            if (experimentKey && variationKey) {
-                if (!activeExperiments.includes(experimentKey + ':' + variationKey)) {
-                    activeExperiments.push(experimentKey + ':' + variationKey);
-                }
-            }
-        // This will execute if you have called isFeatureEnabled and the visitor gets into a Feature Test
-        } else if (type === 'feature' && decisionInfo.source == 'feature test') {
-            var experimentKey = decisionInfo.sourceInfo.experimentKey;
-            var variationKey = decisionInfo.sourceInfo.variationKey;
-            if(experimentKey && variationKey){
-                if (!activeExperiments.includes(experimentKey + ':' + variationKey)) {
-                    activeExperiments.push(experimentKey + ':' + variationKey);
-                }
-            }
-        }
-		*/
-    };
 
-const notificationId = optimizelyClient.notificationCenter.addNotificationListener(optimizelySdk.enums.NOTIFICATION_TYPES.DECISION, onDecision);
-			//console.log('reason', result.reason);
-
-		//	var config = optimizelyClient.getOptimizelyConfig();
-
-		//	var decisionEvent = (config['featuresMap']['example']['variablesMap']['disable_decision_event'].value == 'true') ? optimizelyOptions.DISABLE_DECISION_EVENT : null;
-
-//var user = optimizelyClient.createUserContext(userId, attributes);
-			//var decision = user.decide('example', [decisionEvent]);
-
-		//	if (decision['enabled']){
-		//		document.querySelector('head > link:nth-child(12)').setAttribute('href', 'css/main2.css');
-		//		document.querySelector('#content > section > div.work.nav.col-md-6 > h2 > span').innerText = decision['variables'].brand_messaging;
-		//	}
-
-			document.querySelectorAll('.text-nav').forEach(item => {
+		document.querySelectorAll('.text-nav').forEach(item => {
 	  		item.addEventListener('click', event => {
 				optimizelyClient.track('click', userId);
 			})
 		});
-//		window.decision = decision;
 		window.config = config;
 	});
 
